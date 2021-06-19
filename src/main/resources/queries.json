@@ -1,0 +1,25 @@
+PUT events
+{
+  "mappings": {
+    "_source": {
+      "enabled": false
+    },
+    "properties": {
+      "venue": {
+        "type": "keyword"
+      },
+      "location": {
+        "type": "keyword"
+      },
+      "address": {
+        "type": "text"
+      },
+      "editorial-event-photo-join-field": {
+        "type": "join",
+        "relations": {
+          "editorial-event": "editorial-photo"
+        }
+      }
+    }
+  }
+}

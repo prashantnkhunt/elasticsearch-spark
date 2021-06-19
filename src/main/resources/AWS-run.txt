@@ -1,0 +1,1 @@
+spark-submit --deploy-mode cluster --class IndexEvents --master yarn --deploy-mode cluster --driver-memory 6g --executor-memory 3g --executor-cores 2 s3://spark-code-es-spark/code/elasticsearch-spark-1.0-SNAPSHOT.jar

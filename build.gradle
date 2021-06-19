@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.prominentpixel'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = "com.prominentpixel.spark.core.DBRead"
+
+jar {
+    zip64=true
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+dependencies {
+    compile group: 'org.elasticsearch', name: 'elasticsearch-spark-20_2.11', version: '7.6.1'
+    compileOnly group: 'org.apache.spark', name: 'spark-core_2.11', version: '2.2.0'
+}
