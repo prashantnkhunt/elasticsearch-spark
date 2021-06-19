@@ -29,7 +29,6 @@ public class IndexEvents {
                 JavaSparkContext javaSparkContext = new JavaSparkContext(sparkConf);
 
             indexEvent(javaSparkContext);
-//                getESIndexData(javaSparkContext);
 
                 javaSparkContext.stop();
                 javaSparkContext.close();
