@@ -26,9 +26,13 @@ public class IndexEvents {
                 sparkConf.set("es.port",args[0]);
                 sparkConf.set("es.nodes",args[1]);
                 sparkConf.set("es.nodes.wan.only",args[2]);
+
+                //TODO: Master URL : either set it here OR specify like, -Dspark.master=spark://myhost:7077
+                sparkConf.setMaster("local[*]");
                 JavaSparkContext javaSparkContext = new JavaSparkContext(sparkConf);
 
-            indexEvent(javaSparkContext);
+//                indexEvent(javaSparkContext);
+                getESIndexData(javaSparkContext);
 
                 javaSparkContext.stop();
                 javaSparkContext.close();

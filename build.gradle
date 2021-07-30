@@ -27,5 +27,10 @@ jar {
 
 dependencies {
     compile group: 'org.elasticsearch', name: 'elasticsearch-spark-20_2.11', version: '7.6.1'
-    compileOnly group: 'org.apache.spark', name: 'spark-core_2.11', version: '2.2.0'
+
+    //TODO:For running it in local make it compile, for Deployment where Spark is already available, make the below as compileOnly.
+    compile group: 'org.apache.spark', name: 'spark-core_2.11', version: '2.2.0'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.16'
+
 }
